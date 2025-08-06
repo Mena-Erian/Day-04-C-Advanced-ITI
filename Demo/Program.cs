@@ -11,6 +11,8 @@ namespace Demo
     {
         static void Main(string[] args)
         {
+            #region Collections
+            #region Lists(Arrays) Clases
             #region ArrayList
             //ArrayList arrayList = new ArrayList();
             //arrayList.Add(1);
@@ -62,6 +64,84 @@ namespace Demo
             /// //foreach (int key in dic.Keys) Console.WriteLine($"Key: {key},Name: {dic[key]}");
             /// foreach (KeyValuePair<int,string> item in dic) Console.WriteLine(item); 
             #endregion
+            #endregion
+
+            #region LinkedList
+            //LinkedList<>
+            #endregion
+
+            //EmployeeList employees = new EmployeeList();
+            //employees.Add(new Employee() { Id = 1, Name = "Ali" });
+            //employees.Add(new Employee() { Id = 2, Name = "sAli" });
+            //employees.Add(new Employee() { Id = 3, Name = "Ali" });
+
+            //List<Employee> employees = new List<Employee>()
+            //{
+            //    new Employee() { Id = 1, Name = "Ali" },
+            //    new Employee() { Id = 2, Name = "sAli" },
+            //    new Employee() { Id = 3, Name = "Ali" },
+            //}; 
+            #endregion
+
+            #region Exciption Handeling
+            //try
+            //{
+            //    test();
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex);
+            //}
+            /// try
+            /// {
+            /// 
+            ///     ValidateEmployeeData(new Employee() { Id = 200, Name = "Hamada" });
+            /// }
+            /// catch (Exception ex)
+            /// {
+            ///     Console.WriteLine($"{ex.Message}");
+            ///     throw;
+            /// } 
+            #endregion
+
+        }
+        static void test()
+        {
+            try
+            {
+                int[] arr = { 1, 2, 3 };
+                //arr[5] = 10;
+
+                int x = int.Parse(Console.ReadLine());
+                if (x == 0)
+                {
+                    throw new DivideByZeroException("Please enter a valid number");
+                }
+                int y = 10 / x;
+                Console.WriteLine($"Result: {y}");
+
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine($"Error occured: {ex.Message}");
+                //Console.WriteLine($"Error occured: {ex.StackTrace}");
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine($"Error occured: {ex.Message}");
+            }
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine($"Error occured: {ex.Message}");
+            //}
+            finally // work wethear done try or done Catch
+            {
+                Console.WriteLine("Close connection");
+            }
+        }
+        static void ValidateEmployeeData(Employee emp)
+        {
+            if (emp.Id > 100) throw new InvalidEmployeeValidData("Id Must Be Smaller than 100", emp);
         }
     }
 }
